@@ -144,4 +144,6 @@ STATIC_DIR,
 
 LOGIN_REDIRECT_URL='/afterlogin'
 
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 
