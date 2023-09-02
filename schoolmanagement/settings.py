@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -27,7 +28,8 @@ SECRET_KEY = 'k0ujs9pcw+7qohwas!o7_ept20$c@$)-b=qco8sgviy_f)((bc'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -74,14 +76,25 @@ TEMPLATES = [
 WSGI_APPLICATION = 'schoolmanagement.wsgi.application'
 
 
+CORS_ALLOW_ALL_ORIGINS = True
+
+# Additional CORS settings (customize as needed)
+CORS_ALLOW_METHODS = ['GET','POST','DELETE',"PUT",'OPTIONS']  # You can add more methods as necessary
+CORS_ALLOW_HEADERS = ['accept', 'origin', 'content-type', 'Authorization','X-CSRFToken']
+
+
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
+DATABASES={
+    'default':dj_database_url.parse("postgres://dtabase_user:U037R2AefH3DtVvTHBHYAY57P4CqVRfO@dpg-cjb462gcfp5c73ahouag-a/dtabase")
 }
 
 
