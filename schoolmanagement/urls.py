@@ -1,8 +1,4 @@
-"""
-by sumit kumar
-written by fb.com/sumit.luv
 
-"""
 from django.contrib import admin
 from django.urls import path
 from school import views
