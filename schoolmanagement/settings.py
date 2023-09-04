@@ -95,7 +95,7 @@ CORS_ALLOW_HEADERS = ['accept', 'origin', 'content-type', 'Authorization','X-CSR
 # }
 
 DATABASES={
-    'default':dj_database_url.parse("postgres://dtabase_user:U037R2AefH3DtVvTHBHYAY57P4CqVRfO@dpg-cjb462gcfp5c73ahouag-a/dtabase")
+    'default':dj_database_url.parse("postgres://database_de3y_user:yLGCfzssgS2OqygBVRaaHjm7Fgf9WN1g@dpg-cjqsn28jbais738qirhg-a/database_de3y")
 }
 
 
