@@ -5,16 +5,65 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Contact Us</title>
 
+  <!-- Include Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 
-  <title>School</title>
   <style media="screen">
+    /* Custom styles for the jumbotron */
     .jumbotron {
       margin-bottom: 0px;
     }
 
     .jumbotron h1 {
       text-align: center;
+    }
+
+    /* Style the success message container */
+    .success-container {
+      background-color: #f1f3f0;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      color: #121111;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin: 0 auto;
+      width: 80%;
+      max-width: 400px;
+      animation: borderRadiusAnimation 2s infinite alternate;
+    }
+
+    .success-container h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .success-container p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+
+    /* Style the "HOME" button */
+    .btn-primary {
+      background-color: #ff5733;
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      padding: 10px 20px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      background-color: #FF3300;
+    }
+
+    /* Style the icon */
+    .icon {
+      color: #16f00a;
+      font-size: 36px;
+      margin-bottom: 20px;
     }
   </style>
 
@@ -24,14 +73,18 @@
 
   {% include "school/navbar.html" %}
   <br><br>
+
   <div class="jumbotron">
-    <h1 class="display-4">Your message sent successfully !</h1>
-    <p class="lead">We will respond to your feedback soon</p>
-    <hr class="my-4">
-    <p>Check other features of website !</p>
-    <p class="lead">
-      <a class="btn btn-primary btn-lg" href="/" role="button">HOME</a>
-    </p>
+    <div class="success-container">
+      <i class="fas fa-check-circle icon"></i>
+      <h1 class="display-4">Your message sent successfully!</h1>
+      <p class="lead">We will respond to your feedback soon</p>
+      <hr class="my-4">
+      <p>Check other features of the website!</p>
+      <p class="lead">
+        <a class="btn btn-primary btn-lg" href="/" role="button">HOME</a>
+      </p>
+    </div>
   </div>
 
   {% include "school/footer.html" %}

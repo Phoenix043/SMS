@@ -1,25 +1,94 @@
 <!DOCTYPE html>
-
 <html lang="en" dir="ltr">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>School</title>
+  <title>Teacher Approval</title>
 
+  <!-- Include Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <!-- Include Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 
   <style media="screen">
-    .jumbotron {
-      margin-top: 0px;
-      margin-bottom: 0px;
-    }
-
-    .jumbotron h1 {
+    /* Add custom styles here */
+    .custom-jumbotron {
+      background-color: #3498db;
+      color: #fff;
+      margin-top: 0;
+      margin-bottom: 0;
+      padding: 20px;
+      border-radius: 10px;
       text-align: center;
+      animation: fadeIn 1s; /* Add a fadeIn animation */
     }
 
-    .alert {
-      margin: 0px;
+    .custom-jumbotron h1 {
+      font-size: 2.5rem;
+    }
+
+    /* Add custom CSS animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Style the content directly inside the jumbotron */
+    .custom-jumbotron p {
+      margin-bottom: 10px; /* Add spacing between content elements */
+    }
+
+    /* Style the box div */
+    .custom-box {
+      width: 30%; /* Set the width of the box */
+      background-color: #fffcfc; /* Background color for the box */
+      color: #0c0c0c;
+      padding: 20px;
+      border-radius: 10px; /* Add rounded corners to the box */
+      text-align: center;
+      margin: 0 auto; /* Center align the box horizontally */
+      animation: borderRadiusAnimation 2s infinite alternate; /* Add a border-radius animation */
+    }
+
+    /* Add custom CSS animation for border radius */
+    @keyframes borderRadiusAnimation {
+      0% {
+        border-radius: 50px;
+      }
+      100% {
+        border-radius: 10px;
+      }
+    }
+
+    /* Style the icons */
+    .icon {
+      font-size: 24px;
+      margin-right: 5px;
+    }
+
+    /* Style the "Back to Home" button */
+    .custom-button {
+      background-color: #207ef0; /* Background color for the button */
+      color: #fff;
+      padding: 15px 30px; /* Add padding to the button */
+      border-radius: 10px; /* Add rounded corners to the button */
+      text-decoration: none; /* Remove underlines from the link */
+      transition: background-color 0.3s; /* Add a smooth background color transition on hover */
+    }
+
+    .custom-button:hover {
+      background-color: #111111;
+      color: #e74c3c; 
+      text-decoration: none;/* Change background color on hover */
+    }
+    .text{
+      text-transform: uppercase; color: #FF5733;
     }
   </style>
 
@@ -30,18 +99,27 @@
   <br>
   <br>
 
-  <div class="jumbotron" style="margin-top: 0px;
-    margin-bottom: 0px;">
-    <h1 class="display-4">Hello {{request.user.first_name}}</h1>
-    <p class="lead">Your Account is not approved till now <br><br>Our Team is checking your profile <br><br> Soon you will be hired to our school</p>
-    <hr class="my-4">
-    <p>Check Later</p>
+  <div class="jumbotron custom-jumbotron">
+    <div class="custom-box">
+      <!-- Box content with icons -->
+      <h2>Hello <span class="text">{{request.user.first_name}}</span></h2><br>
+      <h6> <i class="fas fa-info-circle icon" style="color: #FF5733;"></i> Your Teacher Account is Pending Approval</h6><br>
+      <h6><i class="fas fa-hourglass icon" style="color: #14d821;"></i> Our Team is reviewing your profile</h6><br>
+      <h6><i class="fas fa-check-circle icon" style="color: #1437e4;"></i> You will be notified once approved</h6><br>
+      <h6><i class="fas fa-clock icon" style="color: #a63cf2;"></i> Thank you for your patience</h6>
+    </div>
+    <br>
     <p class="lead">
-      <a class="btn btn-primary btn-lg" href="/logout" role="button">Logout For Now</a>
+      <a class="custom-button" href="/logout" role="button">Logout</a>
     </p>
   </div>
 
   {% include "school/footer.html" %}
+
+  <!-- Include Bootstrap JavaScript (jQuery and Popper.js) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
 </html>

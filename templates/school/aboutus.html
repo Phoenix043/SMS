@@ -12,73 +12,85 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
   <style type="text/css">
-      .about-container {
-          padding: 40px;
-          text-align: center;
-      }
+    .about-container {
+        padding: 20px;
+        text-align: center; 
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 80%;
+        margin: 0 auto;
+        text-align: center;
+        animation: borderRadiusAnimation 2s infinite alternate; /* Add a border-radius animation */
+    }
 
-      .jumbotron {
-          background-color: #f8f9fa;
-          border-radius: 10px;
-          padding: 20px;
-      }
+    .jumbotron {
+      background-color: #f8f9fa;
+      border-radius: 10px;
+      padding: 20px;
+    }
 
-      .jumbotron h1 {
-          font-size: 36px;
-      }
+    .jumbotron h1 {
+      font-size: 36px;
+      color: #007bff; /* Blue color for the heading */
+    }
 
-      .jumbotron p {
-          font-size: 18px;
-      }
+    .jumbotron p {
+      font-size: 18px;
+    }
 
-      .btn-primary {
-          background-color: #007bff;
-          border: none;
-      }
+    .btn-primary {
+      background-color: #007bff;
+      border: none;
+    }
 
-      .btn-primary:hover {
-          background-color: #0056b3;
-      }
-      ul {
-          list-style-position:inside; /* Moves the marker inside the <ul> */
-          padding-left: 35%; /* Removes default left padding */
-      }
+    .btn-primary:hover {
+      background-color: #0056b3;
+    }
 
-      ul li {
-          display: flex; /* Use flexbox to align marker and content */
-          align-items: center; /* Vertically center the content */
-          margin-bottom: 10px; /* Adjust the margin as needed */
-      }
+    ul {
+      list-style-position: inside;
+      padding-left: 35%;
+    }
 
-      ul li::before {
-          content: "\2022"; /* Use a bullet character as the marker (adjust as needed) */
-          margin-right: 10px; /* Adjust the spacing between marker and content */
-      }
+    ul li {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
 
+    ul li::before {
+      content: "\2022";
+      margin-right: 10px;
+      color: #007bff; /* Blue color for the bullet */
+    }
   </style>
 </head>
 
 <body>
-    {% include "school/navbar.html" %}
-    <div class="about-container">
-      <div class="jumbotron">
-          <h1 class="display-4">Welcome to Our School</h1>
-          <p class="lead">We are dedicated to providing quality education and support to our students and teachers.</p>
-          <p class="lead">At School Management, we believe in:</p>
-          <ul>
-              <li>Empowering students to achieve their full potential</li>
-              <li>Fostering a culture of creativity and innovation</li>
-              <li>Providing a safe and inclusive learning environment</li>
-          </ul>
-          <p class="lead">Our passionate teachers and staff are committed to shaping the future of our students.</p>
-          <hr class="my-4">
-          <p>Explore our website to learn more about what makes us special.</p>
-          <p class="lead">
-              <a class="btn btn-primary btn-lg" href="/" role="button">Home</a>
-          </p>
-      </div>
+  {% include "school/navbar.html" %}
+  <br>
+  <div class="about-container">
+    <div class="jumbotron">
+      <i class="fas fa-graduation-cap fa-5x" style="color: #3cdb10;"></i> <!-- Graduation cap icon -->
+      <h1 class="display-4">Welcome to Our School</h1>
+      <p class="lead">We are dedicated to providing quality education and support to our students and teachers.</p>
+      <p class="lead">At School Management, we believe in:</p>
+      <ul>
+        <li>Empowering students to achieve their full potential</li>
+        <li>Fostering a culture of creativity and innovation</li>
+        <li>Providing a safe and inclusive learning environment</li>
+      </ul>
+      <p class="lead">Our passionate teachers and staff are committed to shaping the future of our students.</p>
+      <hr class="my-4">
+      <p>Explore our website to learn more about what makes us special.</p>
+      <p class="lead">
+        <a class="btn btn-primary btn-lg" href="/" role="button">Home</a>
+      </p>
+    </div>
   </div>
-    {% include "school/footer.html" %}
+  {% include "school/footer.html" %}
 </body>
 
 </html>

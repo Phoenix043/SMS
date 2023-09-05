@@ -1,6 +1,11 @@
 {% extends 'school/homebase.html' %}
 {% block content %}
 
+ <!-- Include Bootstrap CSS -->
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+ <!-- Include Font Awesome for icons -->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 <style>
   /* Custom styles for the jumbotron */
   .jumbotron {
@@ -26,12 +31,13 @@
 
   /* Style the buttons */
   .btn-primary {
-    background-color: #ff6b6b;
+    background-color: #1d89e1;
     color: #fff;
     border: none;
     border-radius: 50px;
     padding: 15px 40px;
     margin-right: 20px;
+    margin-bottom: 10px;
     text-decoration: none;
     font-weight: bold;
     letter-spacing: 1px;
@@ -39,26 +45,55 @@
   }
 
   .btn-primary:hover {
-    background-color: #ff4f4f;
+    background-color: #141313;
+    color: red;
     transform: scale(1.05);
   }
 
   .btn-secondary {
     background-color: transparent;
-    color: #ff6b6b;
-    border: 2px solid #ff6b6b;
+    color: #ef0c0c;
+    border: 2px solid #378dc0;
     border-radius: 50px;
     padding: 15px 40px;
     text-decoration: none;
+    margin-bottom: 10px;
     font-weight: bold;
     letter-spacing: 1px;
     transition: background-color 0.3s ease, transform 0.3s ease;
   }
 
   .btn-secondary:hover {
-    background-color: #ff6b6b;
-    color: #fff;
+    background-color: #141414;
+    color: #f20a0a;
     transform: scale(1.05);
+  }
+
+  /* Style the box div */
+  .custom-box {
+    width: 50%;
+    background-color: #fffcfc;
+    color: #0c0c0c;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    margin: 0 auto;
+    animation: borderRadiusAnimation 2s infinite alternate;
+  }
+
+  @keyframes borderRadiusAnimation {
+    0% {
+      border-radius: 50px;
+    }
+    100% {
+      border-radius: 10px;
+    }
+  }
+
+  /* Style the icons */
+  .icon {
+    font-size: 36px;
+    margin-bottom: 20px;
   }
 </style>
 
@@ -66,14 +101,21 @@
 <br>
 
 <div class="jumbotron">
-  <h1 class="display-4">Hello, Student</h1>
-  <p class="lead">Welcome to School Management System</p>
-  <hr class="my-4">
-  <p>You can access various features after Login.</p>
-  <p class="lead">
-    <a class="btn btn-primary btn-lg" href="studentsignup" role="button">New Admission</a>
-    <a class="btn btn-secondary btn-lg" href="studentlogin" role="button">Login</a>
-  </p>
+  <div class="custom-box">
+    <i class="fas fa-graduation-cap icon" style="color: #25e410;"></i>
+    <h1 class="display-4">Hello, Student</h1>
+    <p class="lead">Welcome to School Management System</p>
+    <hr class="my-4">
+    <p>You can access various features after Login.</p>
+    <p class="lead">
+      <a class="btn btn-primary btn-lg" href="studentsignup" role="button">New Admission</a>
+      <a class="btn btn-secondary btn-lg" href="studentlogin" role="button">Login</a>
+    </p>
+  </div>
 </div>
+<!-- Include Bootstrap JavaScript (jQuery and Popper.js) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 {% endblock content %}
