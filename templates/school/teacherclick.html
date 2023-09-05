@@ -1,11 +1,73 @@
 {% extends 'school/homebase.html' %}
 {% block content %}
+
+<style>
+  /* Custom styles for the jumbotron */
+  .jumbotron {
+    background-size: cover;
+    background-position: center;
+    color: #070707;
+    text-align: center;
+    padding: 80px;
+    border-radius: 20px;
+  }
+
+  .jumbotron h1 {
+    font-size: 4em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+  }
+
+  .lead {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+    opacity: 0.8;
+  }
+
+  /* Style the buttons */
+  .btn-primary {
+    background-color: #ff6b6b;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    padding: 15px 40px;
+    margin-right: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+
+  .btn-primary:hover {
+    background-color: #ff4f4f;
+    transform: scale(1.05);
+  }
+
+  .btn-secondary {
+    background-color: transparent;
+    color: #ff6b6b;
+    border: 2px solid #ff6b6b;
+    border-radius: 50px;
+    padding: 15px 40px;
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+
+  .btn-secondary:hover {
+    background-color: #ff6b6b;
+    color: #fff;
+    transform: scale(1.05);
+  }
+</style>
+
 <br>
 <br>
-<div class="jumbotron" style="margin-bottom:0px;">
+<div class="jumbotron">
   <h1 class="display-4">Hello, Teacher</h1>
   <p class="lead">Welcome to School Management System.</p>
-  <hr class="my-4">
+  <hr class="my-4 custom-hr">
   <p>You can access various features after Login.</p>
   <p class="lead">
     <a class="btn btn-primary btn-lg" href="teachersignup" role="button">Apply For Job</a>
@@ -13,4 +75,3 @@
   </p>
 </div>
 {% endblock content %}
-
