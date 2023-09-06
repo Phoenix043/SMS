@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 {% load widget_tweaks %}
+{% load static %}
 <html lang="en" dir="ltr">
 
 <head>
@@ -47,7 +48,7 @@
       color: #fff;
     }
   </style>
-
+<link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.png' %}" >
 </head>
 
 
@@ -95,7 +96,7 @@
                 {% render_field form1.password class="form-control" placeholder="Password" %}
               </div>
               <div class="form-group">
-                {% render_field form2.roll class="form-control" placeholder="Roll" %}
+                {% render_field form2.roll class="form-control" placeholder="Email" %}
               </div>
               <div class="form-group">
                 {% render_field form2.fee class="form-control" placeholder="Fee" %}
