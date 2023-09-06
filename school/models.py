@@ -24,8 +24,8 @@ class TeacherExtra(models.Model):
 classes=[('Full Time','Full Time'),('Part Time','Part Time')]
 class StudentExtra(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE)
-    roll = models.CharField(max_length=10)
-    mobile = models.CharField(max_length=40,null=True)
+    roll = models.EmailField(max_length=40,unique=True)
+    mobile = models.CharField(max_length=10,null=True)
     fee=models.PositiveIntegerField(null=True)
     cl= models.CharField(max_length=10,choices=classes,default='one')
     status=models.BooleanField(default=False)
