@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect,reverse
+from django.shortcuts import render,redirect,reverse,get_object_or_404
 from . import forms,models
 from django.db.models import Sum
 from django.contrib.auth.models import Group
@@ -14,21 +14,21 @@ def home_view(request):
 
 
 
-#for showing signup/login button for teacher(by sumit)
+#for showing signup/login button for teacher
 def adminclick_view(request):
     if request.user.is_authenticated:
         return HttpResponseRedirect('afterlogin')
     return render(request,'school/adminclick.html')
 
 
-#for showing signup/login button for teacher(by sumit)
+#for showing signup/login button for teacher
 def teacherclick_view(request):
     if request.user.is_authenticated:
         return HttpResponseRedirect('afterlogin')
     return render(request,'school/teacherclick.html')
 
 
-#for showing signup/login button for student(by sumit)
+#for showing signup/login button for student
 def studentclick_view(request):
     if request.user.is_authenticated:
         return HttpResponseRedirect('afterlogin')
@@ -105,7 +105,7 @@ def teacher_signup_view(request):
 
 
 
-#for checking user is techer , student or admin(by sumit)
+#for checking user is techer , student or admin
 def is_admin(user):
     return user.groups.filter(name='ADMIN').exists()
 def is_teacher(user):
@@ -133,7 +133,7 @@ def afterlogin_view(request):
 
 
 
-#for dashboard of adminnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn(by sumit)
+#for dashboard of adminnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
 
 @login_required(login_url='adminlogin')
 @user_passes_test(is_admin)
@@ -152,7 +152,7 @@ def admin_dashboard_view(request):
 
     notice=models.Notice.objects.all()
 
-    #aggregate function return dictionary so fetch data from dictionay(by sumit)
+    #aggregate function return dictionary so fetch data from dictionay
     mydict={
         'teachercount':teachercount,
         'pendingteachercount':pendingteachercount,
@@ -178,7 +178,7 @@ def admin_dashboard_view(request):
 
 
 
-#for teacher sectionnnnnnnn by adminnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn(by sumit)
+#for teacher sectionnnnnnnn by adminnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
 
 @login_required(login_url='adminlogin')
 @user_passes_test(is_admin)
@@ -290,7 +290,7 @@ def admin_view_teacher_salary_view(request):
 
 
 
-#for student by adminnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn(by sumit)
+#for student by adminnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
 
 @login_required(login_url='adminlogin')
 @user_passes_test(is_admin)
@@ -404,7 +404,7 @@ def admin_view_student_fee_view(request):
 
 
 
-#attendance related viewwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww(by sumit)
+#attendance related viewwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
 @login_required(login_url='adminlogin')
 @user_passes_test(is_admin)
 def admin_attendance_view(request):
@@ -460,7 +460,7 @@ def admin_view_attendance_view(request,cl):
 
 
 
-#fee related view by adminnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn(by sumit)
+#fee related view by adminnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
 @login_required(login_url='adminlogin')
 @user_passes_test(is_admin)
 def admin_fee_view(request):
@@ -480,7 +480,7 @@ def admin_view_fee_view(request,cl):
 
 
 
-#notice related viewsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss(by sumit)
+#notice related viewsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
 @login_required(login_url='adminlogin')
 @user_passes_test(is_admin)
 def admin_notice_view(request):
@@ -497,11 +497,26 @@ def admin_notice_view(request):
 
 
 
+@login_required(login_url='adminlogin')
+@user_passes_test(is_admin)
+def delete_notice(request, notice_id):
+    notice = get_object_or_404(models.Notice, id=notice_id)
+    
+    # Check if the user has permission to delete the notice (e.g., admin check)
+    if not is_admin(request.user):
+        # Handle the case where the user doesn't have permission
+        return redirect('admin-dashboard')  # Redirect to a suitable URL
+
+    if request.method == 'POST':
+        notice.delete()
+        return redirect('admin-dashboard')  # Redirect to the admin dashboard or another suitable URL after deletion
+    
+    return render(request, 'school/delete_notice.html', {'notice': notice})
 
 
 
 
-#for TEACHER  LOGIN    SECTIONNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN(by sumit)
+#for TEACHER  LOGIN    SECTIONNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
 @login_required(login_url='teacherlogin')
 @user_passes_test(is_teacher)
 def teacher_dashboard_view(request):
@@ -586,7 +601,7 @@ def teacher_notice_view(request):
 
 
 
-#FOR STUDENT AFTER THEIR Loginnnnnnnnnnnnnnnnnnnnn(by sumit)
+#FOR STUDENT AFTER THEIR Loginnnnnnnnnnnnnnnnnnnnn
 @login_required(login_url='studentlogin')
 @user_passes_test(is_student)
 def student_dashboard_view(request):
@@ -626,7 +641,7 @@ def student_attendance_view(request):
 
 
 
-# for aboutus and contact ussssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss (by sumit)
+# for aboutus and contact ussssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss 
 def aboutus_view(request):
     return render(request,'school/aboutus.html')
 
