@@ -41,7 +41,7 @@ class StudentExtra(models.Model):
 
 
 class Attendance(models.Model):
-    roll=models.CharField(max_length=10,null=True)
+    roll=models.CharField(max_length=40,null=True)
     date=models.DateField()
     cl=models.CharField(max_length=10)
     present_status = models.CharField(max_length=10)
