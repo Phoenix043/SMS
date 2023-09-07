@@ -34,6 +34,21 @@
     .closebtn:hover {
       color: black;
     }
+        .delete-button {
+      background-color: #141414;
+      color: rgb(243, 239, 239);
+      padding: 5px 10px; /* Adjust padding as needed */
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin-top: 10px; /* Add margin to separate it from the message */
+      border-radius: 5px;
+    }
+
+    /* Hover effect for the Delete button */
+    .delete-button:hover {
+      background-color: #4e584d; /* Darker shade of red on hover */
+    }
   </style>
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
@@ -50,6 +65,11 @@
 <div class="alert">
   <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
   <strong>{{n.date}} ||By :{{n.by}} </strong><br> {{n.message}}
+
+  <form method="post" action="{% url 'delete-notice' n.id %}">
+    {% csrf_token %}
+    <button type="submit" class="delete-button">Delete</button>
+  </form>
 </div>
 {%endfor%}
 

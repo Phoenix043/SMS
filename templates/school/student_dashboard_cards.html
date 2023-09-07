@@ -1,11 +1,13 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 
 <head>
   <meta charset="utf-8">
-
+  <title>Scholario</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.png' %}" >
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <link href="http://netdna.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -91,8 +93,8 @@
       <div class="col-md-4 col-xl-3">
         <div class="card bg-c-yellow order-card">
           <div class="card-block">
-            <h6 class="m-b-20">Roll</h6>
-            <h2 class="text-right"><i class="fas fa-list-ol f-left"></i></h2>
+            <h6 class="m-b-20">Email</h6>
+            <h2 class="text-right"><i class="fas fa-envelope f-left"></i></h2>
             <p><span style="font-size: 20px;">{{roll}}</span></p>
           </div>
         </div>

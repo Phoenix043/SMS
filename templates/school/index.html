@@ -4,71 +4,84 @@
 
 <head>
   <meta charset="utf-8">
-  <title></title>
+  <title>Scholario</title>
+  <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.png' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0-beta2/css/all.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-  <style media="screen">
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-    }
+  <!-- <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}"> -->
+  <style>
+    /* Reset some default styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
 
-    .background {
-      flex: 1;
-      background-image: url('{% static "images/bgi.jpg" %}');
-      width: 100%;
-      background-size: cover;
-      background-repeat: no-repeat;
-      height: 80vh;
-      position: relative;
-    }
+/* Background */
+.background {
+  background-image: url('{% static "images/bgi.jpg" %}');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 80vh;
+  position: relative;
+}
 
-    .floating-div {
-      z-index: 1000;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: rgba(17, 17, 17, 0.7);
-      color: #f8f1f1;
-      padding: 20px;
-      border-radius: 10px;
-      text-align: center;
-      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-      animation: float 3s ease-in-out infinite;
-    }
+/* Floating Div */
+.floating-div {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(8, 8, 8, 0.7);
+  color: #f8f1f1;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0px 0px 10px rgba(235, 175, 175, 0.3);
+  animation: float 3s ease-in-out infinite;
+  z-index: 100;
+}
 
-    @keyframes float {
-      0%, 100% {
-        transform: translate(-50%, -50%);
-      }
-      50% {
-        transform: translate(-50%, -60%);
-      }
-    }
+/* Animation */
+@keyframes float {
+  0%, 100% {
+    transform: translate(-50%, -50%);
+  }
+  50% {
+    transform: translate(-50%, -60%);
+  }
+}
 
-    .quote {
-      font-size: 1.5rem;
-      margin-top: 20px;
-    }
+/* Quote */
+.quote {
+  font-size: 1.5rem;
+  margin-top: 20px;
+}
 
-    .btn-admission {
-      margin-top: 20px;
-      background-color: #007bff;
-      color: #fff;
-      padding: 10px 20px;
-      border-radius: 5px;
-      text-decoration: none;
-      transition: background-color 0.3s ease, transform 0.3s ease;
-    }
+/* Admission Button */
+.btn-admission {
+  margin-top: 20px;
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
 
-    .btn-admission:hover {
-      background-color: #ebf706;
-      color: red;
-      transform: scale(1.05);
-    }
+.btn-admission:hover {
+  background-color: #f3f4ec;
+  color: red;
+  transform: scale(1.05);
+}
 
-  .additional-content {
+/* Additional Content */
+.additional-content {
   background-color: rgb(101 124 184 / 18%);
   padding: 20px;
   border-radius: 10px;
@@ -81,11 +94,53 @@
   margin-bottom: 10px;
 }
 
-.additional-content p {
-  font-size: 1rem;
-  margin-bottom: 20px;
+/* First Content Section */
+.first {
+  background-color: #111111;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  color: #f3ecec;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  max-width: 400px;
+  animation: borderRadiusAnimation 2s infinite alternate;
 }
 
+
+/* Second Content Section */
+.second {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+li{
+  padding: 10px;
+  background-color: rgb(237, 237, 241);
+  border-radius: 15px;
+  margin: 10px;
+  color: black;
+}
+
+/* Red Text */
+h3 {
+  color: rgb(248, 242, 242);
+}
+
+/* Text Glow Animation */
+/* Add the keyframes animation for the glow effect */
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #eeeeee, 0 0 20px #000000, 0 0 30px #000000, 0 0 40px #000000, 0 0 50px #9554b3, 0 0 60px #9554b3, 0 0 70px #9554b3;
+  }
+
+  to {
+    text-shadow: 0 0 20px #eeeeee, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+  }
+}
+
+
+/* Lists */
 .additional-content ol, .additional-content ul {
   list-style: none;
   padding: 0;
@@ -93,124 +148,104 @@
 
 .additional-content ol div,
 .additional-content ul div {
-  background-color: #007bff; /* Background color for the div */
-  padding: 10px; /* Spacing inside the div */
+  background-color: #007bff;
+  padding: 10px;
   border-radius: 5px;
   width: 80%;
   margin: auto;
-  margin-bottom: 8px; /* Spacing between divs */
+  margin-bottom: 8px;
 }
 
 .additional-content ol li,
 .additional-content ul li {
-  margin-left: 20px; /* Indentation for list items */
-}
-
-.additional-content h3 {
-  font-size: 1.25rem;
-  margin-top: 20px;
+  margin-left: 20px;
 }
 
 .additional-content ul div:last-child,
 .additional-content ol div:last-child {
-  margin-bottom: 0; /* Remove bottom margin for the last div in the list */
+  margin-bottom: 0;
 }
 
 .additional-content p:last-child {
-  margin-bottom: 0; /* Remove bottom margin for the last paragraph */
+  margin-bottom: 0;
 }
-.first{
-  background-color: #111111;
-      border-radius: 10px;
-      padding: 10px;
-      text-align: center;
-      color: #f3ecec;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      margin: 0 auto;
-      max-width: 400px;
-      animation: borderRadiusAnimation 2s infinite alternate;
-    }
-    .second{
-      display: grid;
-      grid-template-columns: repeat(3,1fr);
-      gap: 10px;
-    }
-    h3{
-      color: red;
-    }
+/* Styling for icons */
+.icon {
+  /* Set a specific font size */
+  font-size: 24px; /* Adjust the size as needed */
 
-    @-webkit-keyframes glow {
-      from {
-        text-shadow: 0 0 10px #eeeeee, 0 0 20px #000000, 0 0 30px #000000, 0 0 40px #000000, 0 0 50px #9554b3, 0 0 60px #9554b3, 0 0 70px #9554b3;
-      }
+  /* Change the icon color */
+  color: #007bff; /* Change to your desired color */
 
-      to {
-        text-shadow: 0 0 20px #eeeeee, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
-      }
-    }
+  /* Add padding or margin if necessary */
+  padding: 5px;
+  margin-right: 10px; /* Add margin to the right to separate icon from text */
+
+  /* Adjust other properties if needed */
+  /* For example, you can add a border, background, or apply transformations */
+  border: 1px solid #ccc;
+  background-color: #f0f0f0;
+  border-radius: 50%; /* Makes the icon circular */
+  transition: transform 0.3s ease; /* Add a hover effect */
+}
+
+/* Add a hover effect when the mouse is over the icon */
+.icon:hover {
+  transform: scale(1.2); /* Scale the icon on hover */
+}
+
+
   </style>
-
 </head>
 
 <body>
   {% include "school/navbar.html" %}
-  <br>
-  <br>
-  <body>
-    <div class="background"></div>
-    <div class="floating-div">
-      <h1>Welcome</h1>
-      <p class="quote">Knowledge is key to success.</p>
-      <a class=" btn-admission" href="/studentsignup" role="button">Take Admission</a>
-    </div>
-    <div class="additional-content">
-      <div class="second">
+
+  <div class="background"></div>
+  <div class="floating-div">
+    <h1 style="color: #e8300c;">Welcome</h1>
+    <p style="color: rgb(36, 232, 22);" class="quote glow">Knowledge is key to success.</p>
+    <a class="btn-admission" href="/studentsignup" role="button">Take Admission</a>
+  </div>
+
+  <div class="additional-content">
+    <div class="second">
       <div class="first">
-        <div><h3><li>Driven By Outcomes</li></h3></div>
-      <p>To Launch Your Career In Tech</p>
-      <ol>
-        <div> <li>Career Launchpad</li></div>
-        <div> <li>Nurture Ambition</li></div>
-       <div><li>Practice Based</li></div>
-        <div><li>Industry Readiness</li></div>
-        <div><li>Holistic Development</li></div>
-      </ol>
+        <div><h3>Driven By Outcomes</h3></div>
+        <p>To Launch Your Career In Tech</p>
+        <ol>
+          <div><li><i class="fa fa-rocket icon fa-lg" style="color: #007bff;"></i><br> Career Launchpad</li></div>
+          <div><li><i class="fa fa-lightbulb-o icon fa-2x" style="color: #ff4da6;"></i><br> Nurture Ambition</li></div>
+          <div><li><i class="fa fa-code icon fa-3x" style="color: #00cc00;"></i><br>Practice Based</li></div>
+          <div><li><i class="fa fa-industry icon fa-4x" style="color: #ff9900;"></i><br> Industry Readiness</li></div>
+          <div><li><i class="fa fa-graduation-cap icon fa-5x" style="color: #9900cc;"></i><br> Holistic Development</li></div>
+        </ol>        
       </div>
       <div class="first">
-        <div><h3><li>Our Courses</li></h3></div>
-      <p>Practice-Based Learning Tracks, Supercharged By A.I.</p>
-      <ul>
-        <div><li>Full Stack Web Development - Become job-ready in 30 weeks</li></div>
-        <div><li>Backend Development - Become job-ready in 35 weeks</li></div>
-      </ul>
+        <div><h3>Our Courses</h3></div>
+        <p>Practice-Based Learning Tracks, Supercharged By A.I.</p>
+        <ul>
+          <div><li><i class="fa fa-graduation-cap icon" style="color: #111111;"></i><br> Full Stack Web Development - Become job-ready in 30 weeks </li></div>
+          <div><li><i class="fa fa-clock-o icon icon" style="color: #00cc00;"></i><br> Backend Development - Become job-ready in 35 weeks</li></div>
+        </ul>
+        
+      </div>
+      <div class="first">
+        <div><h3>Best-In-Class Curriculum</h3></div>
+        <ul>
+         <div><li><i class="fa fa-check-circle icon" style="color: #e8300c;"></i><br> 100% Live Distance Learning</li></div> 
+         <div> <li><i class="fa fa-cogs icon" style="color: #ff4da6;"></i><br> Generative AI Integrated Program</li></div>
+        <div><li><i class="fa fa-industry icon" style="color: #00cc00;"></i><br> Industry Ready Curriculum</li></div>
+        <div><li><i class="fa fa-lightbulb-o icon" style="color: #ff9900;"></i><br> Focus On Learning Agility</li></div>
+         <div><li><i class="fa fa-clock-o icon" style="color: #9900cc;"></i> <br>Industry Ready In Just 25 - 35 Weeks</li></div>
+        </ul>
+        
+      </div>
     </div>
-    <div class="first">
-      <div><h3><li>Best-In-Class Curriculum</li></h3></div>
-      <ul>
-        <div><li>100% Live Distance Learning</li></div>
-        <div><li>Generative AI Integrated Program</li></div>
-        <div> <li>Industry Ready Curriculum</li></div>
-        <div><li>Focus On Learning Agility</li></div>
-        <div><li>Industry Ready In Just 25 - 35 Weeks</li></div>
-      </ul>
-    </div>
+    <h2>With Our Unique Pedagogy Learn Right In Less Time. All We Ask Is Your Dedication!</h2>
   </div>
-  <br>
-    <h2> With Our Unique Pedagogy Learn Right In Less Time. All We Ask Is Your Dedication!</h2>
-</div>
-  </body>
-
-  <br>
-  <br>
-  <br><br>
 
   {% include "school/admin_teacher_student_card.html" %}
-
-  <br><br>
-  <br>
-  <br>
-  <br>
-  <br>
   {% include "school/footer.html" %}
 </body>
 
