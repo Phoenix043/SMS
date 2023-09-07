@@ -1,4 +1,8 @@
+"""
+by sumit kumar
+written by fb.com/sumit.luv
 
+"""
 from django.contrib import admin
 from django.urls import path
 from school import views
@@ -59,7 +63,7 @@ urlpatterns = [
     path('admin-view-fee/<str:cl>', views.admin_view_fee_view,name='admin-view-fee'),
 
     path('admin-notice', views.admin_notice_view,name='admin-notice'),
-
+    path('delete_notice/<int:notice_id>/', views.delete_notice, name='delete-notice'),
 
 
     path('teacher-dashboard', views.teacher_dashboard_view,name='teacher-dashboard'),
@@ -77,4 +81,3 @@ urlpatterns = [
     path('aboutus', views.aboutus_view),
     path('contactus', views.contactus_view),
 ]
-
